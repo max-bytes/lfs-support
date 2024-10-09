@@ -6,6 +6,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Lost For Swords Support</title>
+
+    <style>
+        label {
+            min-width: 200px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .form-group {
+            padding-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            min-height: 30px;
+        }
+        textarea {
+            width: 100%;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        var $sendEmailEl = $('#submit');
+        var $bodyEl = $('#request');
+        var $emailEl = $('#email2');
+        // $('#request', '#fullname', '#email').on('input', updateEmailLink);
+
+        $sendEmailEl.on('click', () => {
+            var url = 'mai' + 'lto:office' + '@' + 'max-' + 'bytes.com?' +
+                'subject=' + encodeURIComponent('Your support request for Lost For Swords') +
+                '&cc=' + encodeURIComponent($emailEl.val()) +
+                '&body=' + encodeURIComponent($bodyEl.val());
+            window.open(url);
+        });
+    });
+    </script>
 </head>
 <body style="display: flex; align-items: center; justify-content: center; min-height: 100%; margin: 0; background-color: #151515; font-family: 'Roboto', sans-serif;">
 
@@ -17,6 +55,37 @@
         <p>
             office [at] max [minus] bytes [dot] com
         </p>
+
+        <p>
+            Or contact us directly through the form below:
+        </p>
+
+        <div class="rendered-form">
+            <!-- <div class="formbuilder-text form-group field-name">
+                <label for="name" class="formbuilder-text-label">Your Name<span class="formbuilder-required">*</span></label>
+                <input type="text" class="form-control" name="fullname" access="false" id="fullname" required="required" aria-required="true">
+            </div> -->
+            <div class="formbuilder-text form-group field-email2">
+                <label for="email2" class="formbuilder-text-label">Your e-mail address</label>
+                <input type="text" class="form-control" name="email2" access="false" id="email2" required="required" aria-required="true">
+            </div>
+            <!-- <div class="formbuilder-text form-group field-email" style="display: none">
+                <label for="email" class="formbuilder-text-label">Your e-mail address</label>
+                <input type="text" class="form-control" name="email" access="false" id="email">
+            </div> -->
+            <!-- <div class="formbuilder-text form-group field-firstname" style="display: none">
+                <label for="firstname" class="formbuilder-text-label">Name</label>
+                <input type="text" class="form-control" name="name" access="false" id="name">
+            </div> -->
+            <div class="formbuilder-textarea form-group field-request">
+                <label for="request" class="formbuilder-textarea-label">Your Request</label>
+                <textarea type="textarea" class="form-control" name="request" access="false" rows="10" id="request" required="required" aria-required="true"></textarea>
+            </div>
+            <div class="formbuilder-button form-group field-button-1728469411687">
+                <button type="button" class="btn-primary btn" name="button-1728469411687" access="false" id="submit">Submit</button>
+            </div>
+        </div>
+
     </div>
 
 </body>
